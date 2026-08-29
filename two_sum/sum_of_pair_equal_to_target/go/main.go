@@ -8,7 +8,10 @@
 
 package main
 
-func TwoSum(arr []int, target int) bool {
+func main() {}
+
+// Solution 1 uses the two pointers technique.
+func TwoSum1(arr []int, target int) bool {
 	left := 0
 	right := len(arr) - 1
 
@@ -29,4 +32,17 @@ func TwoSum(arr []int, target int) bool {
 	return false
 }
 
-func main() {}
+// Solution 2 uses a map.
+func TwoSum2(arr []int, target int) bool {
+	compMap := make(map[int]bool, len(arr))
+
+	for _, i := range arr {
+		if compMap[i] {
+			return true
+		}
+
+		compMap[target-i] = true
+	}
+
+	return false
+}
