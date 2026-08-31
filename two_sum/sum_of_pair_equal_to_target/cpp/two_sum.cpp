@@ -19,3 +19,23 @@ auto main() -> int {
 
   return 0;
 }
+
+
+auto two_sum_1(std::vector<int> arr, int target) -> bool {
+  int left = 0;
+  int right = arr.size() - 1;
+
+  while (left < right) {
+    // TODO: this can overflow.
+    int sum = arr.at(left) + arr.at(right);
+
+    if (sum == target) return true;
+
+    if (sum < target)
+      left++;
+    else
+      right--;
+  }
+
+  return false;
+}
